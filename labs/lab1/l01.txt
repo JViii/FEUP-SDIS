@@ -1,0 +1,46 @@
+register - bind DNS name to IP, return -1 if already registered, number of bindings in the service otherwise
+lookup - retrieve IP from DNS. Returns 'x.x.x.x' or 'NOT_FOUND' string
+
+* Use table with pairs (DNS name, IP address)
+
+Server must respond to:
+  * Registration of plate number and its owner
+  * Query of the owner of given plate number
+  ''REGISTER <DNS name> <IP address>''
+  ''LOOKUP <DNS name>
+
+Possible reply
+  <result> (this should be the integer -1 or number of DNS names already registered)
+  <DNS name> <IP address>
+
+Note: To simplify, each message should be a string
+
+
+Server: 
+  Usage: java Server <port number> (infinite loop)
+
+    <oper> - operation received
+    <opnd>* - list of operands received
+
+  When a connection happens print message
+    Server: <oper> <opnd>*
+    
+Client:
+  java Client <host> <port> <oper> <opnd>*
+
+  <host> - DNS name or IP address
+  <port> - port number of server's service
+  <oper> - 'register' or 'lookup'
+  <opnd>* - list of operands
+
+  Client waits after sending request, prints the reply and terminates
+    Client: <oper> <opnd>* : <result>
+
+    <result> should be 'ERROR' if any errors occur
+
+
+Extra: implement timeout on client?
+
+Examples:
+  javac Client.java && java Client localhost 5454 register www.google.com 8.8.8.8
+  javac Server.java && java Server 5454
