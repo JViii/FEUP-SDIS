@@ -1,4 +1,0 @@
-https://www.javatpoint.com/DatagramSocket-and-DatagramPacket
-https://docs.oracle.com/javase/7/docs/api/java/net/DatagramSocket.html
-https://docs.oracle.com/javase/7/docs/api/java/net/DatagramPacket.html
-https://docs.oracle.com/javase/7/docs/api/java/net/InetAddress.html

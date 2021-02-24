@@ -43,4 +43,5 @@ Extra: implement timeout on client?
 
 Examples:
   javac Client.java && java Client localhost 5454 register www.google.com 8.8.8.8
+  javac Client.java && java Client localhost 5454 lookup  www.google.com
   javac Server.java && java Server 5454
