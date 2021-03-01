@@ -1,0 +1,17 @@
+Server:
+  Has multicast address that advertises it's service's port (lab01) every second to all client subscribers of the multicast group
+  java Server <srvc_port> <mcast_addr> <mcast_port>
+  Two threads - One for advertising other for receiving requests
+
+  Print:
+    multicast: <mcast_addr> <mcast_port>: <srvc_addr> <srvc_port> (when advertising port)
+    <oper> <opnd> * :: <out> (when answering request)
+
+Client:
+  Joins multicast group -> gets service port -> sends request
+  java client <mcast_addr> <mcast_port> <oper> <opnd> *
+
+  Print:
+     multicast: <mcast_addr> <mcast_port>: <srvc_addr> <srvc_port> (received port advertisement)
+     <oper> <opnd> *:: <out> (when requesting or receiving)
+    
